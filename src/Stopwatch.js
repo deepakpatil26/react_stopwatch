@@ -72,6 +72,8 @@ class Stopwatch extends Component {
     let buttons = null;
     let started =
       this.getHours() > 0 || this.getMinutes() > 0 || this.getSeconds() > 0;
+    // In your render method, replace the button elements with the updated classes
+
     if (!this.state.tick && !started) {
       buttons = (
         <ButtonGroup justified>
@@ -80,7 +82,7 @@ class Stopwatch extends Component {
               bsStyle="info"
               bsSize="large"
               block
-              className="Stopwatch-button"
+              className="Stopwatch-button Stopwatch-button-start" // Added class
               onClick={this.startCounter}
             >
               Start
@@ -96,7 +98,7 @@ class Stopwatch extends Component {
               bsStyle="info"
               bsSize="large"
               block
-              className="Stopwatch-button"
+              className="Stopwatch-button Stopwatch-button-resume" // Added class
               onClick={this.resumeCounter}
             >
               Resume
@@ -106,7 +108,7 @@ class Stopwatch extends Component {
             <Button
               bsSize="large"
               block
-              className="Stopwatch-button"
+              className="Stopwatch-button Stopwatch-button-reset" // Added class
               onClick={this.resetCounter}
             >
               Reset
@@ -122,7 +124,7 @@ class Stopwatch extends Component {
               bsStyle="danger"
               bsSize="large"
               block
-              className="Stopwatch-button"
+              className="Stopwatch-button Stopwatch-button-stop" // Added class
               onClick={this.stopCounter}
             >
               Stop
@@ -132,7 +134,7 @@ class Stopwatch extends Component {
             <Button
               bsSize="large"
               block
-              className="Stopwatch-button"
+              className="Stopwatch-button Stopwatch-button-reset" // Added class
               onClick={this.resetCounter}
             >
               Reset
@@ -141,6 +143,7 @@ class Stopwatch extends Component {
         </ButtonGroup>
       );
     }
+
     return (
       <div className="Stopwatch">
         <Form className="Stopwatch-display">
