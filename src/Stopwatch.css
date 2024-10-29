@@ -46,36 +46,27 @@
 .Stopwatch-button:active {
   transform: translateY(1px); /* Slightly lower button when pressed */
 }
-
-@media (max-width: 575px) {
+@media (max-width: 768px) {
   .Stopwatch-number {
-    font-size: 3em; /* Smaller font size for small screens */
+    font-size: 5em; /* Adjusted size for smaller screens */
+  }
+
+  .Stopwatch-button {
+    font-size: 1.2em; /* Smaller button text */
+    padding: 8px; /* Smaller padding */
   }
 }
 
-@media (min-width: 576px) {
+@media (max-width: 576px) {
   .Stopwatch-number {
-    font-size: 5em; /* Medium font size for medium screens */
+    font-size: 3em; /* Further adjusted size for mobile */
+  }
+
+  .Stopwatch-button {
+    font-size: 1em; /* Adjust text size further for small devices */
   }
 }
 
-@media (min-width: 768px) {
-  .Stopwatch-number {
-    font-size: 8em; /* Larger font size for large screens */
-  }
-}
-
-@media (min-width: 992px) {
-  .Stopwatch-number {
-    font-size: 10em; /* Extra-large font size for extra-large screens */
-  }
-}
-
-@media (min-width: 1200px) {
-  .Stopwatch-number {
-    font-size: 12em; /* Largest font size for largest screens */
-  }
-}
 .Stopwatch-button-start {
   background-color: #28a745; /* Green for Start */
   color: #ffffff; /* White text */
