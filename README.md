@@ -2,9 +2,9 @@
 
 Welcome to the **React Stopwatch**—a simple, elegant, and responsive stopwatch application built with React and styled with Bootstrap for a clean, modern look.
 
-![Stopwatch Demo](src/assets/react_stopwatch.gif)
-
 [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://deepakpatil26.github.io/react_stopwatch/)
+
+![Stopwatch Demo](src/assets/react_stopwatch.gif)
 
 ## 🌟 Features
 
