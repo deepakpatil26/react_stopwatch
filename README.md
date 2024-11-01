@@ -67,9 +67,6 @@ yarn start
 
 - The stopwatch app will be available at http://localhost:3000.
 
-📺 Demo
-Check out the live demo: ![React Stopwatch](https://deepakpatil26.github.io/react_stopwatch/)
-
 🤝 Contributing
 Contributions are welcome! If you'd like to add new features or improve the existing code, feel free to fork the repository and submit a pull request.
 
