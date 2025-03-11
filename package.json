@@ -5,12 +5,15 @@
   "homepage": "https://deepakpatil26.github.io/react_stopwatch",
   "dependencies": {
     "gh-pages": "^1.2.0",
-    "react": "^15.6.1",
-    "react-bootstrap": "^0.31.2",
-    "react-dom": "^15.6.1"
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "react-scripts": "1.0.10"
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "react-scripts": "^5.0.1",
+    "typescript": "^4.9.5"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -19,5 +22,17 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

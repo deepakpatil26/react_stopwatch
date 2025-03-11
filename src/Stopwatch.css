@@ -1,106 +1,97 @@
 .Stopwatch {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
-  background-color: #282c34; /* Dark background for contrast */
-  color: #ffffff;
-  font-family: "Arial", sans-serif;
-  padding: 20px; /* Add some padding */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Soft shadow */
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: #282c34;
+   color: #ffffff;
+   font-family: 'Arial', sans-serif;
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .Stopwatch-display {
-  flex: 1;
-  align-self: stretch; /* Make it stretch to fill the container */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+   flex: 1;
+   align-self: stretch;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap; /* Allow flexibility */
 }
 
 .Stopwatch-number {
-  font-size: 5em; /* Large numbers */
-  color: #61dafb; /* Light blue color for numbers */
-  margin: 0 10px; /* Spacing between numbers */
+   font-size: clamp(2.5em, 8vw, 5em); /* Responsive font size */
+   color: #61dafb;
+   margin: 0 10px;
 }
 
 .Stopwatch-button-group {
-  margin: 20px auto; /* Center the button group */
-  display: flex;
-  gap: 10px; /* Spacing between buttons */
+   margin: 20px auto;
+   display: flex;
+   flex-direction: column; /* Stack buttons vertically by default */
+   gap: 10px;
+   align-items: center;
+}
+
+/* Stack buttons horizontally on larger screens */
+@media (min-width: 768px) {
+   .Stopwatch-button-group {
+      flex-direction: row; /* Side-by-side layout for tablets and larger */
+   }
 }
 
 .Stopwatch-button {
-  border-radius: 5px; /* Rounded button corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Button shadow */
-  transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+   border-radius: 5px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   transition: background-color 0.3s, transform 0.3s;
+   font-size: clamp(1em, 3vw, 1.5em); /* Responsive button font size */
+   padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px); /* Responsive padding */
+   border: none;
+   width: 100%; /* Buttons take full width on small screens */
+   max-width: 200px; /* Prevent overly wide buttons */
+   text-align: center;
 }
 
 .Stopwatch-button:hover {
-  transform: translateY(-2px); /* Lift button on hover */
+   opacity: 0.9;
 }
 
 .Stopwatch-button:active {
-  transform: translateY(1px); /* Slightly lower button when pressed */
-}
-@media (max-width: 768px) {
-  .Stopwatch-number {
-    font-size: 5em; /* Adjusted size for smaller screens */
-  }
-
-  .Stopwatch-button {
-    font-size: 1.2em; /* Smaller button text */
-    padding: 10px; /* Smaller padding */
-  }
+   transform: translateY(1px);
 }
 
+/* Responsive Adjustments for Small Screens */
 @media (max-width: 576px) {
-  .Stopwatch-number {
-    font-size: 3em; /* Further adjusted size for mobile */
-  }
+   .Stopwatch-number {
+      font-size: 3em;
+   }
 
-  .Stopwatch-button {
-    font-size: 1em; /* Adjust text size further for small devices */
-  }
+   .Stopwatch-button {
+      font-size: 1.2em;
+      width: 100%; /* Ensure buttons are stacked and full width */
+   }
 }
 
+/* Button Colors */
 .Stopwatch-button-start {
-  background-color: #28a745; /* Green for Start */
-  color: #ffffff; /* White text */
+   background-color: #28a745;
+   color: #ffffff;
 }
 
 .Stopwatch-button-stop {
-  background-color: #dc3545; /* Red for Stop */
-  color: #ffffff; /* White text */
+   background-color: #dc3545;
+   color: #ffffff;
 }
 
 .Stopwatch-button-reset {
-  background-color: #ffc107; /* Orange for Reset */
-  color: #282c34; /* Dark text color */
+   background-color: #ffc107;
+   color: #282c34;
 }
 
 .Stopwatch-button-resume {
-  background-color: #007bff; /* Blue for Resume */
-  color: #ffffff; /* White text */
-}
-
-/* Common button styles */
-.Stopwatch-button {
-  border-radius: 5px; /* Rounded button corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Button shadow */
-  font-size: 1.5em; /* Increase font size */
-  transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
-  padding: 10px 20px; /* Padding for buttons */
-  border: none; /* Remove default border */
-}
-
-.Stopwatch-button:hover {
-  opacity: 0.9; /* Slightly darker on hover */
-}
-
-.Stopwatch-button:active {
-  transform: translateY(1px); /* Slightly lower button when pressed */
+   background-color: #007bff;
+   color: #ffffff;
 }
