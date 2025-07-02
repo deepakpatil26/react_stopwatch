@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Button, ButtonGroup } from 'react-bootstrap';
-import './Stopwatch.css';
 
 // Define a type for component state
 interface StopwatchState {
@@ -8,10 +7,12 @@ interface StopwatchState {
   totalSeconds: number;
 }
 
-// Define a functional component for Separator
-const Separator: React.FC = () => {
-  return <span className='Stopwatch-number'>:</span>;
-};
+// Responsive Separator component
+const Separator: React.FC = () => (
+  <span className='text-4xl sm:text-5xl md:text-7xl text-[#61dafb] mx-2'>
+    :
+  </span>
+);
 
 class Stopwatch extends Component<{}, StopwatchState> {
   constructor(props: {}) {
@@ -72,11 +73,15 @@ class Stopwatch extends Component<{}, StopwatchState> {
 
     let buttons = null;
 
+    // Responsive button classes
+    const baseBtn =
+      'rounded-md shadow-lg transition px-4 py-2 text-base sm:text-lg md:text-xl w-full max-w-[200px] md:max-w-[140px] text-center hover:opacity-90 active:translate-y-[1px]';
+
     if (!this.state.tick && !started) {
       buttons = (
-        <ButtonGroup className='Stopwatch-button-group'>
+        <ButtonGroup className='my-5 mx-auto flex flex-col gap-2 items-center md:flex-row'>
           <Button
-            className='Stopwatch-button Stopwatch-button-start'
+            className={`${baseBtn} bg-[#28a745] text-white`}
             onClick={this.startCounter}>
             Start
           </Button>
@@ -84,14 +89,14 @@ class Stopwatch extends Component<{}, StopwatchState> {
       );
     } else if (!this.state.tick && started) {
       buttons = (
-        <ButtonGroup className='Stopwatch-button-group'>
+        <ButtonGroup className='my-5 mx-auto flex flex-col gap-2 items-center md:flex-row'>
           <Button
-            className='Stopwatch-button Stopwatch-button-resume'
+            className={`${baseBtn} bg-[#007bff] text-white`}
             onClick={this.resumeCounter}>
             Resume
           </Button>
           <Button
-            className='Stopwatch-button Stopwatch-button-reset'
+            className={`${baseBtn} bg-[#ffc107] text-[#282c34]`}
             onClick={this.resetCounter}>
             Reset
           </Button>
@@ -99,14 +104,14 @@ class Stopwatch extends Component<{}, StopwatchState> {
       );
     } else {
       buttons = (
-        <ButtonGroup className='Stopwatch-button-group'>
+        <ButtonGroup className='my-5 mx-auto flex flex-col gap-2 items-center md:flex-row'>
           <Button
-            className='Stopwatch-button Stopwatch-button-stop'
+            className={`${baseBtn} bg-[#dc3545] text-white`}
             onClick={this.stopCounter}>
             Stop
           </Button>
           <Button
-            className='Stopwatch-button Stopwatch-button-reset'
+            className={`${baseBtn} bg-[#ffc107] text-[#282c34]`}
             onClick={this.resetCounter}>
             Reset
           </Button>
@@ -115,18 +120,18 @@ class Stopwatch extends Component<{}, StopwatchState> {
     }
 
     return (
-      <div className='Stopwatch'>
-        <Form className='Stopwatch-display'>
-          <FormGroup>
-            <span className='Stopwatch-number'>
+      <div className='w-[95vw] max-w-xl h-full flex flex-col justify-center items-center bg-[#282c34] text-white font-sans p-5 rounded-xl shadow-2xl'>
+        <Form className='flex-1 self-stretch flex flex-col justify-center items-center flex-wrap'>
+          <FormGroup className='flex flex-row items-center justify-center flex-wrap'>
+            <span className='text-4xl sm:text-5xl md:text-7xl text-[#61dafb] mx-2'>
               {this.leadingZero(this.getHours())}
             </span>
             <Separator />
-            <span className='Stopwatch-number'>
+            <span className='text-4xl sm:text-5xl md:text-7xl text-[#61dafb] mx-2'>
               {this.leadingZero(this.getMinutes())}
             </span>
             <Separator />
-            <span className='Stopwatch-number'>
+            <span className='text-4xl sm:text-5xl md:text-7xl text-[#61dafb] mx-2'>
               {this.leadingZero(this.getSeconds())}
             </span>
           </FormGroup>

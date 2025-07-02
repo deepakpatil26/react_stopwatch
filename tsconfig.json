@@ -1,13 +1,13 @@
 {
-   "compilerOptions": {
-      "strict": true,
-      "jsx": "react-jsx",
-      "moduleResolution": "node",
-      "target": "es6",
-      "outDir": "dist",
-      "noEmit": true,
-      "allowSyntheticDefaultImports": true,
-      "module": "esnext"
-   },
-   "include": ["src"]
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "target": "es6",
+    "outDir": "dist",
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "esnext"
+  },
+  "include": ["src"]
 }

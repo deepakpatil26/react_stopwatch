@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import Stopwatch from './Stopwatch';
-import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className='App-Container'>
-        <div className='App'>
+      <div className='absolute w-full h-full flex items-center justify-center bg-black'>
+        <div className='w-[65%] h-[75%] text-center m-auto flex flex-col justify-center items-center'>
           <Stopwatch />
         </div>
       </div>
