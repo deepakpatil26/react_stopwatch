@@ -97,3 +97,4 @@ git push origin feature/NewFeature
 📜 License:
 
 - This project is licensed under the MIT License.
+  Feel free to use, modify, and distribute it as per the terms of the license.
