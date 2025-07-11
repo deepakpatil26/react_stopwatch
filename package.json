@@ -2,7 +2,6 @@
   "name": "react-stopwatch",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://deepakpatil26.github.io/react_stopwatch",
   "dependencies": {
     "gh-pages": "^1.2.0",
     "react": "^18.3.1",
