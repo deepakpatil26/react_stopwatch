@@ -4,6 +4,8 @@ Welcome to the **React Stopwatch**—a simple, elegant, and responsive stopwatch
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://react-stopwatch-henna-rho.vercel.app//)
 
+![Stopwatch Screenshot](public/assets/stopwatch.png)
+
 ## 🌟 Features
 
 - **Start, Stop, and Reset** functionality
