@@ -176,7 +176,18 @@ export default class Stopwatch extends Component<{}, StopwatchState> {
     return (
       <div className='w-[95vw] max-w-xl h-full flex flex-col justify-center items-center bg-[#282c34] text-white font-sans p-5 rounded-xl shadow-2xl'>
         {/* Analog face */}
-        <div className='relative w-72 h-72 rounded-full mb-6 bg-gray-900 flex items-center justify-center border-4 border-gray-600 overflow-hidden'>
+        <div 
+          className='relative rounded-full mb-6 bg-gray-900 flex items-center justify-center border-4 border-gray-600 overflow-hidden'
+          style={{
+            width: '288px',
+            height: '288px',
+            minWidth: '288px',
+            minHeight: '288px',
+            maxWidth: '288px',
+            maxHeight: '288px',
+            aspectRatio: '1 / 1'
+          }}
+        >
           {/* Tick marks */}
           {this.renderTickMarks()}
 
