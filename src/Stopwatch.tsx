@@ -6,7 +6,7 @@ interface StopwatchState {
 }
 
 const Separator: React.FC = () => (
-  <span className='text-4xl sm:text-5xl md:text-7xl text-[#61dafb] mx-2'>
+  <span className='text-4xl sm:text-5xl md:text-7xl text-cyan-400 mx-2 font-mono'>
     :
   </span>
 );
@@ -55,12 +55,14 @@ export default class Stopwatch extends Component<{}, StopwatchState> {
       ticks.push(
         <div
           key={`major-${i}`}
-          className='absolute w-px h-3 bg-[#61dafb]/70 rounded-sm'
+          className='absolute bg-[#61dafb] rounded-sm'
           style={{
-            top: '16px',
+            width: '2px',
+            height: '12px',
+            top: '8px',
             left: '50%',
             transform: `translateX(-50%) rotate(${angle}deg)`,
-            transformOrigin: '50% 128px',
+            transformOrigin: '50% 136px',
           }}
         />
       );
@@ -74,12 +76,14 @@ export default class Stopwatch extends Component<{}, StopwatchState> {
         ticks.push(
           <div
             key={`minor-${i}`}
-            className='absolute w-px h-2 bg-[#444] rounded-sm'
+            className='absolute bg-gray-500 rounded-sm'
             style={{
-              top: '20px',
+              width: '1px',
+              height: '8px',
+              top: '12px',
               left: '50%',
               transform: `translateX(-50%) rotate(${angle}deg)`,
-              transformOrigin: '50% 124px',
+              transformOrigin: '50% 132px',
             }}
           />
         );
@@ -92,7 +96,7 @@ export default class Stopwatch extends Component<{}, StopwatchState> {
   // Generate numbers
   renderNumbers = () => {
     const numbers = [] as React.ReactNode[];
-    const radius = 110; // Distance from center
+    const radius = 100; // Distance from center
     const displayNumbers = [60, 15, 30, 45]; // Only show these 4 numbers
     const positions = [0, 3, 6, 9]; // Corresponding positions (0=top, 3=right, 6=bottom, 9=left)
 
@@ -104,7 +108,7 @@ export default class Stopwatch extends Component<{}, StopwatchState> {
       numbers.push(
         <div
           key={`number-${pos}`}
-          className='absolute text-[#61dafb] text-lg font-bold'
+          className='absolute text-cyan-400 text-base font-bold select-none'
           style={{
             left: `calc(50% + ${x}px)`,
             top: `calc(50% + ${y}px)`,
@@ -172,7 +176,7 @@ export default class Stopwatch extends Component<{}, StopwatchState> {
     return (
       <div className='w-[95vw] max-w-xl h-full flex flex-col justify-center items-center bg-[#282c34] text-white font-sans p-5 rounded-xl shadow-2xl'>
         {/* Analog face */}
-        <div className='relative w-72 h-72 rounded-full mb-6 bg-[#1f1f2e] flex items-center justify-center border-4 border-[#444]'>
+        <div className='relative w-72 h-72 rounded-full mb-6 bg-gray-900 flex items-center justify-center border-4 border-gray-600 overflow-hidden'>
           {/* Tick marks */}
           {this.renderTickMarks()}
 
@@ -180,47 +184,65 @@ export default class Stopwatch extends Component<{}, StopwatchState> {
           {this.renderNumbers()}
 
           {/* Hands */}
+          {/* Minute hand */}
           <div
-            className='absolute bottom-1/2 left-1/2 w-[4px] h-[80px] bg-[#61dafb] rounded-sm origin-bottom transition-transform duration-75 z-10'
+            className='absolute bg-cyan-400 rounded-sm z-10'
             style={{
+              width: '3px',
+              height: '70px',
+              bottom: '50%',
+              left: '50%',
               transform: `translateX(-50%) rotate(${minuteAngle}deg)`,
               transformOrigin: '50% 100%',
+              transition: 'transform 0.1s ease-out',
             }}
           />
+          {/* Second hand */}
           <div
-            className='absolute bottom-1/2 left-1/2 w-[2px] h-[100px] bg-yellow-400 rounded-sm origin-bottom transition-transform duration-75 z-20'
+            className='absolute bg-yellow-400 rounded-sm z-20'
             style={{
+              width: '2px',
+              height: '90px',
+              bottom: '50%',
+              left: '50%',
               transform: `translateX(-50%) rotate(${secondAngle}deg)`,
               transformOrigin: '50% 100%',
+              transition: 'transform 0.1s ease-out',
             }}
           />
+          {/* Millisecond hand */}
           <div
-            className='absolute bottom-1/2 left-1/2 w-[1px] h-[110px] bg-white/60 rounded-sm origin-bottom transition-transform duration-75 z-10'
+            className='absolute bg-white bg-opacity-60 rounded-sm z-10'
             style={{
+              width: '1px',
+              height: '100px',
+              bottom: '50%',
+              left: '50%',
               transform: `translateX(-50%) rotate(${msAngle}deg)`,
               transformOrigin: '50% 100%',
+              transition: 'transform 0.05s ease-out',
             }}
           />
 
           {/* Center pivot */}
-          <div className='absolute top-1/2 left-1/2 w-4 h-4 bg-yellow-400 rounded-full transform -translate-x-1/2 -translate-y-1/2 z-30' />
+          <div className='absolute top-1/2 left-1/2 w-3 h-3 bg-yellow-400 rounded-full transform -translate-x-1/2 -translate-y-1/2 z-30 border border-gray-800' />
         </div>
 
         {/* Digital display */}
         <div className='flex flex-col items-center'>
           <div className='flex flex-row items-center justify-center flex-wrap'>
-            <span className='text-4xl sm:text-5xl md:text-6xl text-[#61dafb] mx-1'>
+            <span className='text-4xl sm:text-5xl md:text-6xl text-cyan-400 mx-1 font-mono'>
               {this.leading2(h)}
             </span>
             <Separator />
-            <span className='text-4xl sm:text-5xl md:text-6xl text-[#61dafb] mx-1'>
+            <span className='text-4xl sm:text-5xl md:text-6xl text-cyan-400 mx-1 font-mono'>
               {this.leading2(m)}
             </span>
             <Separator />
-            <span className='text-4xl sm:text-5xl md:text-6xl text-[#61dafb] mx-1'>
+            <span className='text-4xl sm:text-5xl md:text-6xl text-cyan-400 mx-1 font-mono'>
               {this.leading2(s)}
             </span>
-            <span className='text-3xl sm:text-4xl md:text-5xl text-[#61dafb] mx-1'>
+            <span className='text-3xl sm:text-4xl md:text-5xl text-cyan-400 mx-1 font-mono'>
               .{this.leading3(ms)}
             </span>
           </div>
